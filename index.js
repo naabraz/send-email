@@ -1,6 +1,15 @@
 require('dotenv').config();
 
-const { sendEmail } = require('./src/mail');
-const oauth = require('./src/oauth');
+const express = require('express');
+const { mail } = require('./src/controller');
 
-sendEmail(oauth);
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+mail(app);
+
+app.listen(port, () => {
+  console.log(`Server is running at port ${port} 🚀`);
+});
