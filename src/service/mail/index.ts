@@ -1,9 +1,11 @@
-const { createTransport } = require('nodemailer');
+import { createTransport } from 'nodemailer';
+
+import { Mail, OAuth } from '../../interfaces';
 
 const user = process.env.OAUTH_USER;
 const service = process.env.EMAIL_SERVICE;
 
-const smtpTransport = (oauth) => createTransport({
+const smtpTransport = (oauth: OAuth) => createTransport({
   service,
   auth: {
     type: 'OAuth2',
@@ -12,7 +14,7 @@ const smtpTransport = (oauth) => createTransport({
   },
 });
 
-const sendEmail = (oauth, mail) => {
+export const sendEmail = (oauth: OAuth, mail: Mail) => {
   const transport = smtpTransport(oauth);
 
   transport.sendMail(mail, (error, response) => {
@@ -21,5 +23,3 @@ const sendEmail = (oauth, mail) => {
     return transport.close();
   });
 };
-
-module.exports = { sendEmail };

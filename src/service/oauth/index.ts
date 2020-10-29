@@ -1,4 +1,4 @@
-const { google } = require('googleapis');
+import { google } from 'googleapis';
 
 const { OAuth2 } = google.auth;
 
@@ -19,9 +19,9 @@ client.setCredentials({
 
 const accessToken = client.getAccessToken();
 
-module.exports = {
+export default {
   accessToken,
   clientSecret,
   clientId,
   refreshToken,
-};
+}

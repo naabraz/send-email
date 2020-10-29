@@ -1,10 +1,12 @@
-const { sendEmail } = require('../../service/mail');
-const oauth = require('../../service/oauth');
+import { Application } from 'express';
+import { sendEmail } from '../../service/mail';
+
+import oauth from '../../service/oauth';
 
 const from = process.env.MAIL_SENDER;
 const replyTo = process.env.REPLY_TO;
 
-const mail = (app) => {
+export const mail = (app: Application) => {
   app.post('/send', (req, res) => {
     const { body } = req;
     const { message, subject } = body;
@@ -23,5 +25,3 @@ const mail = (app) => {
     res.send('hello world');
   });
 };
-
-module.exports = { mail };
