@@ -6,7 +6,7 @@
   "author": "Natalia Braz <naabraz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon 'index.ts' --exec 'ts-node' index.ts -e ts"
+    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
   },
   "dependencies": {
     "dotenv": "^8.2.0",

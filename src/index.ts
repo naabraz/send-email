@@ -3,7 +3,7 @@ import express from 'express';
 
 config()
 
-import { mail } from './src/controller';
+import { mail } from './controller';
 
 const app: express.Application = express();
 const port = 3000;
