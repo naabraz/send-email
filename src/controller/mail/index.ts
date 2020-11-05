@@ -1,6 +1,6 @@
 import { Application } from 'express';
-import { sendEmail } from '../../service/mail';
 
+import { sendEmail } from '../../service/mail';
 import oauth from '../../service/oauth';
 
 const from = process.env.MAIL_SENDER;
@@ -22,6 +22,8 @@ export const mail = (app: Application) => {
 
     sendEmail(oauth, mailOptions);
 
-    res.send('hello world');
+    res.send({ success: true });
   });
+
+  app.get('/health', (_, res) => res.send('alive :)'))
 };

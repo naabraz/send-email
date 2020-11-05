@@ -1,11 +1,11 @@
-export interface OAuth {
+export type OAuth = {
   accessToken: Promise<any>,
   clientSecret?: string;
   clientId?: string;
   refreshToken?: string;
 }
 
-export interface Mail {
+export type Mail = {
   from?: string;
   to: string;
   replyTo?: string;
