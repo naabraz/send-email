@@ -1,15 +1,13 @@
 import { createTransport } from 'nodemailer';
 
+import config from 'config';
 import { Mail, OAuth } from 'types';
 
-const user = process.env.OAUTH_USER;
-const service = process.env.EMAIL_SERVICE;
-
 const smtpTransport = (oauth: OAuth) => createTransport({
-  service,
+  service: config.EMAIL_SERVICE,
   auth: {
     type: 'OAuth2',
-    user,
+    user: config.OAUTH_USER,
     refreshToken: oauth.refreshToken,
     clientId: oauth.clientId,
     clientSecret: oauth.clientSecret

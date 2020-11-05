@@ -9,6 +9,7 @@
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
   },
   "_moduleAliases": {
+    "config": "src/config",
     "controller": "src/controller",
     "service": "src/service",
     "types": "src/types"

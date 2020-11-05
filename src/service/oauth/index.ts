@@ -1,11 +1,13 @@
 import { google } from 'googleapis';
 
+import config from 'config';
+
 const { OAuth2 } = google.auth;
 
-const clientSecret = process.env.OAUTH_CLIENT_SECRET;
-const clientId = process.env.OAUTH_CLIENT_ID;
-const redirectUrl = process.env.OAUTH_REDIRECT_URL;
-const refreshToken = process.env.OAUTH_REFRESH_TOKEN;
+const clientSecret = config.OAUTH_CLIENT_SECRET;
+const clientId = config.OAUTH_CLIENT_ID;
+const redirectUrl = config.OAUTH_REDIRECT_URL;
+const refreshToken = config.OAUTH_REFRESH_TOKEN;
 
 const client = new OAuth2(
   clientId,
@@ -13,9 +15,7 @@ const client = new OAuth2(
   redirectUrl,
 );
 
-client.setCredentials({
-  refresh_token: refreshToken,
-});
+client.setCredentials({ refresh_token: config.OAUTH_REFRESH_TOKEN });
 
 const accessToken = client.getAccessToken();
 

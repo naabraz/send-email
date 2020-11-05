@@ -1,10 +1,8 @@
 import { Application } from 'express';
 
+import config from 'config';
 import { sendEmail } from 'service/mail';
 import oauth from 'service/oauth';
-
-const from = process.env.MAIL_SENDER;
-const replyTo = process.env.REPLY_TO;
 
 export const mail = (app: Application) => {
   app.post('/send', (req, res) => {
@@ -12,9 +10,9 @@ export const mail = (app: Application) => {
     const { message, subject } = body;
 
     const mailOptions = {
-      from,
-      to: 'naabraz@gmail.com',
-      replyTo,
+      from: config.MAIL_SENDER,
+      to: config.SEND_TO,
+      replyTo: config.REPLY_TO,
       subject,
       generateTextFromHTML: true,
       html: message,
