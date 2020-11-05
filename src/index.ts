@@ -1,17 +1,13 @@
-import { config } from 'dotenv';
-import express from 'express';
-
-config()
+import 'dotenv/config';
+import express, { Application } from 'express';
 
 import { mail } from './controller';
 
-const app: express.Application = express();
+const app: Application = express();
 const port = 3000;
 
 app.use(express.json());
 
 mail(app);
 
-app.listen(port, () => {
-  console.log(`Server is running at port ${port} 🚀`);
-});
+app.listen(port, () => console.log(`Server is running at port ${port} 🚀`));
