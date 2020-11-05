@@ -11,6 +11,7 @@
   "_moduleAliases": {
     "config": "src/config",
     "controller": "src/controller",
+    "helpers": "src/helpers",
     "service": "src/service",
     "types": "src/types"
   },
@@ -19,7 +20,8 @@
     "express": "^4.17.1",
     "googleapis": "^55.0.0",
     "module-alias": "^2.2.2",
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.10",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",

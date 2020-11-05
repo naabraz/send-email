@@ -1,6 +1,7 @@
 import { createTransport } from 'nodemailer';
 
 import config from 'config';
+import logger from 'helpers/logger';
 import { Mail, OAuth } from 'types';
 
 const smtpTransport = (oauth: OAuth) => createTransport({
@@ -18,7 +19,9 @@ export const sendEmail = (oauth: OAuth, mail: Mail) => {
   const transport = smtpTransport(oauth);
 
   transport.sendMail(mail, (error, response) => {
-    error ? console.log(error) : console.log(response);
+    error
+    ? logger.error(error)
+    : logger.info({ message: JSON.stringify(response) });
 
     return transport.close();
   });
