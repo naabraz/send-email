@@ -6,7 +6,8 @@
   "author": "Natalia Braz <naabraz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
+    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
+    "test": "jest"
   },
   "_moduleAliases": {
     "config": "src/config",
