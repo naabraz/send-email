@@ -1,7 +1,7 @@
 import { Application } from 'express';
 
-import { sendEmail } from '../../service/mail';
-import oauth from '../../service/oauth';
+import { sendEmail } from 'service/mail';
+import oauth from 'service/oauth';
 
 const from = process.env.MAIL_SENDER;
 const replyTo = process.env.REPLY_TO;

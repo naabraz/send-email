@@ -1,6 +1,6 @@
 import { createTransport } from 'nodemailer';
 
-import { Mail, OAuth } from '../../types';
+import { Mail, OAuth } from 'types';
 
 const user = process.env.OAUTH_USER;
 const service = process.env.EMAIL_SERVICE;

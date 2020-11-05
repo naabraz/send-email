@@ -1,7 +1,9 @@
 import 'dotenv/config';
+import 'module-alias/register';
+
 import express, { Application } from 'express';
 
-import { mail } from './controller';
+import { mail } from 'controller';
 
 const app: Application = express();
 const port = 3000;

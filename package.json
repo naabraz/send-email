@@ -8,10 +8,16 @@
   "scripts": {
     "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
   },
+  "_moduleAliases": {
+    "controller": "src/controller",
+    "service": "src/service",
+    "types": "src/types"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "googleapis": "^55.0.0",
+    "module-alias": "^2.2.2",
     "nodemailer": "^6.4.10"
   },
   "devDependencies": {
