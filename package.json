@@ -11,6 +11,7 @@
   "_moduleAliases": {
     "config": "src/config",
     "controller": "src/controller",
+    "helpers": "src/helpers",
     "service": "src/service",
     "types": "src/types"
   },

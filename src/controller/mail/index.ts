@@ -23,5 +23,5 @@ export const mail = (app: Application) => {
     res.send({ success: true });
   });
 
-  app.get('/health', (_, res) => res.send('alive :)'))
+  app.get('/health', (_, res) => res.send('alive 🚀'))
 };
