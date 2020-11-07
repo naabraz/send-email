@@ -8,4 +8,4 @@ export default ({
   OAUTH_CLIENT_ID: process.env.OAUTH_CLIENT_ID,
   OAUTH_REDIRECT_URL: process.env.OAUTH_REDIRECT_URL,
   OAUTH_REFRESH_TOKEN: process.env.OAUTH_REFRESH_TOKEN
-})
+});

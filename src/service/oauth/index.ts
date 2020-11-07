@@ -24,4 +24,4 @@ export default {
   clientSecret,
   clientId,
   refreshToken,
-}
+};
