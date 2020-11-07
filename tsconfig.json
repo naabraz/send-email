@@ -9,10 +9,14 @@
       "controller/*": ["src/controller/*"],
       "helpers/*": ["src/helpers/*"],
       "service/*": ["src/service/*"],
-      "types": ["src/types"]
+      "types": ["src/types/"]
     },
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types/"],
+    "types": [
+      "gapi",
+      "express",
+    ],
   }
 }

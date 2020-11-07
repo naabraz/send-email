@@ -1,5 +1,5 @@
 export type OAuth = {
-  accessToken: Promise<any>,
+  accessToken: Promise<unknown>,
   clientSecret?: string;
   clientId?: string;
   refreshToken?: string;

@@ -15,7 +15,7 @@ const smtpTransport = (oauth: OAuth) => createTransport({
   },
 });
 
-export const sendEmail = (oauth: OAuth, mail: Mail) => {
+export const sendEmail = (oauth: OAuth, mail: Mail): void => {
   const transport = smtpTransport(oauth);
 
   transport.sendMail(mail, (error, response) => {

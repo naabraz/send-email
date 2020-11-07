@@ -7,7 +7,15 @@
   "jsRules": {},
   "rules": {
     "ordered-imports": true,
-    "interface-name": [true, "never-prefix"]
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev", [
+        "config",
+        "helpers",
+        "controller",
+        "types",
+        "service"
+      ]
+    ]
   },
   "rulesDirectory": []
 }

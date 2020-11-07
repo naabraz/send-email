@@ -4,7 +4,7 @@ import config from 'config';
 import { sendEmail } from 'service/mail';
 import oauth from 'service/oauth';
 
-export const mail = (app: Application) => {
+export const mail = (app: Application): void => {
   app.post('/send', (req, res) => {
     const { body } = req;
     const { message, subject } = body;
@@ -23,5 +23,5 @@ export const mail = (app: Application) => {
     res.send({ success: true });
   });
 
-  app.get('/health', (_, res) => res.send('alive 🚀'))
+  app.get('/health', (_, res) => res.send('alive 🚀'));
 };
