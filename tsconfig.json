@@ -12,6 +12,11 @@
       "types": ["src/types/"]
     },
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types/"],
+    "types": [
+      "gapi",
+      "express",
+    ],
   }
 }
