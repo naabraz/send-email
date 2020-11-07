@@ -1,15 +1,17 @@
 module.exports = {
-  roots: [
-    "<rootDir>/src"
-  ],
+  moduleNameMapper: {
+    '^config(.*)$': '<rootDir>/src/config$1',
+    '^controller(.*)$': '<rootDir>/src/controller$1',
+    '^helpers(.*)$': '<rootDir>/src/helpers$1',
+    '^services(.*)$': '<rootDir>/src/services$1',
+  },
   testMatch: [
-    "**/__tests__/**/*.+(ts|tsx|js)",
     "**/?(*.)+(spec|test).+(ts|tsx|js)"
   ],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   collectCoverageFrom: [
-    "**/*.{ts,}",
+    "src/**/**/*.ts",
   ]
 }
