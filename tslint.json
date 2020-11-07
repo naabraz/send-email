@@ -8,7 +8,14 @@
   "rules": {
     "ordered-imports": true,
     "interface-name": [true, "never-prefix"],
-    "no-implicit-dependencies": [true, "dev"]
+    "no-implicit-dependencies": [true, [
+        "config",
+        "helpers",
+        "controller",
+        "types",
+        "service"
+      ]
+    ]
   },
   "rulesDirectory": []
 }
