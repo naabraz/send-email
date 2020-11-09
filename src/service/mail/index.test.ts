@@ -9,11 +9,13 @@ jest.mock('nodemailer');
 describe('Given mail service', () => {
   const mockedCreateTransport = mocked(createTransport, true);
 
-  mockedCreateTransport.mockReturnValue(({
+  const mockTransport = {
     ...require('nodemailer'),
     sendMail: jest.fn((_, callback) => callback(null, 'response')),
     close: jest.fn(),
-  }));
+  };
+
+  mockedCreateTransport.mockReturnValue(({ ...mockTransport }));
 
   const oAuth = {
     accessToken: new Promise((resolve) => resolve(true)),
@@ -51,9 +53,8 @@ describe('Given mail service', () => {
 
   it('Should call logger method when createTransport returns error method', () => {
     mockedCreateTransport.mockReturnValue(({
-      ...require('nodemailer'),
+      ...mockTransport,
       sendMail: jest.fn((_, callback) => callback('error', null)),
-      close: jest.fn(),
     }));
 
     sendEmail(oAuth, mail);
