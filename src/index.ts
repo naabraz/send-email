@@ -3,7 +3,7 @@ import 'module-alias/register';
 
 import express from 'express';
 
-import { mail } from 'controller/mail';
+import mail from 'controller/mail';
 import logger from 'helpers/logger';
 
 const app: express.Application = express();

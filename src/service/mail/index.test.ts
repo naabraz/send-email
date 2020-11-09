@@ -2,7 +2,7 @@ import { createTransport } from 'nodemailer';
 import { mocked } from 'ts-jest/utils';
 
 import logger from 'helpers/logger';
-import { sendEmail } from './index';
+import sendEmail from './index';
 
 jest.mock('nodemailer');
 

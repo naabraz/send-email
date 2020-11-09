@@ -19,9 +19,11 @@ client.setCredentials({ refresh_token: config.OAUTH_REFRESH_TOKEN });
 
 const accessToken = client.getAccessToken();
 
-export default {
+const oAuth = {
   accessToken,
   clientSecret,
   clientId,
   refreshToken,
 };
+
+export default oAuth;

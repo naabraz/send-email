@@ -1,10 +1,10 @@
 import { Application } from 'express';
 
 import config from 'config';
-import { sendEmail } from 'service/mail';
+import sendEmail from 'service/mail';
 import oauth from 'service/oauth';
 
-export const mail = (app: Application): void => {
+const mail = (app: Application): void => {
   app.post('/send', (req, res) => {
     const { body } = req;
     const { message, subject } = body;
@@ -25,3 +25,5 @@ export const mail = (app: Application): void => {
 
   app.get('/health', (_, res) => res.send('alive 🚀'));
 };
+
+export default mail;
