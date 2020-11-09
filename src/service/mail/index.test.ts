@@ -6,16 +6,6 @@ import { sendEmail } from './index';
 
 jest.mock('nodemailer');
 
-jest.mock('config', () => ({
-  EMAIL_SERVICE: 'EMAIL_SERVICE',
-  OAUTH_USER: 'OAUTH_USER'
-}));
-
-jest.mock('helpers/logger', () => ({
-  error: jest.fn(),
-  info: jest.fn(),
-}));
-
 describe('Given mail service', () => {
   const mockedCreateTransport = mocked(createTransport, true);
 

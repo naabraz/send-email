@@ -12,5 +12,8 @@ module.exports = {
     'src/**/*.ts',
     '!**/node_modules/**',
     '!**/coverage/**',
+  ],
+  setupFiles: [
+    './jest.setup.js'
   ]
 };
