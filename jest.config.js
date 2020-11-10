@@ -11,6 +11,8 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.ts',
     '!src/config/**',
+    '!src/index.ts',
+    '!src/controller/index.ts',
     '!src/helpers/logger/**',
     '!**/node_modules/**',
     '!**/coverage/**',
