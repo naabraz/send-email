@@ -2,28 +2,18 @@ import { createTransport } from 'nodemailer';
 import { mocked } from 'ts-jest/utils';
 
 import logger from 'helpers/logger';
-import { sendEmail } from './index';
-
-jest.mock('nodemailer');
-
-jest.mock('config', () => ({
-  EMAIL_SERVICE: 'EMAIL_SERVICE',
-  OAUTH_USER: 'OAUTH_USER'
-}));
-
-jest.mock('helpers/logger', () => ({
-  error: jest.fn(),
-  info: jest.fn(),
-}));
+import sendEmail from './index';
 
 describe('Given mail service', () => {
   const mockedCreateTransport = mocked(createTransport, true);
 
-  mockedCreateTransport.mockReturnValue(({
+  const mockTransport = {
     ...require('nodemailer'),
     sendMail: jest.fn((_, callback) => callback(null, 'response')),
     close: jest.fn(),
-  }));
+  };
+
+  mockedCreateTransport.mockReturnValue(({ ...mockTransport }));
 
   const oAuth = {
     accessToken: new Promise((resolve) => resolve(true)),
@@ -61,9 +51,8 @@ describe('Given mail service', () => {
 
   it('Should call logger method when createTransport returns error method', () => {
     mockedCreateTransport.mockReturnValue(({
-      ...require('nodemailer'),
+      ...mockTransport,
       sendMail: jest.fn((_, callback) => callback('error', null)),
-      close: jest.fn(),
     }));
 
     sendEmail(oAuth, mail);
