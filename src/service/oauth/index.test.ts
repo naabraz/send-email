@@ -9,13 +9,10 @@ describe('Given OAuth service', () => {
   const { OAuth2 } = google.auth;
   const mockOAuth2 = mocked(OAuth2, true);
 
-  const setCredentialsMock = jest.fn();
-  const getAccessTokenMock = jest.fn().mockReturnValue('AccessTokenMock');
-
   mockOAuth2.mockImplementation(() => ({
     ...require('googleapis'),
-    setCredentials: setCredentialsMock,
-    getAccessToken: getAccessTokenMock,
+    setCredentials: jest.fn(),
+    getAccessToken: jest.fn().mockReturnValue('AccessTokenMock'),
   }));
 
   it('Should call OAuth2 from Google Auth to create client', () => {
