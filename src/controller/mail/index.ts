@@ -2,7 +2,7 @@ import { Application } from 'express';
 
 import config from 'config';
 import sendEmail from 'service/mail';
-import oauth from 'service/oauth';
+import createOAuth from 'service/oauth';
 
 const mail = (app: Application): void => {
   app.post('/send', (req, res) => {
@@ -18,7 +18,9 @@ const mail = (app: Application): void => {
       html: message,
     };
 
-    sendEmail(oauth, mailOptions);
+    const oAuth = createOAuth();
+
+    sendEmail(oAuth, mailOptions);
 
     res.send({ success: true });
   });
