@@ -1,3 +1,7 @@
+jest.mock('express');
+
+jest.mock('nodemailer');
+
 jest.mock('config', () => ({
   EMAIL_SERVICE: 'EMAIL_SERVICE',
   OAUTH_USER: 'OAUTH_USER',

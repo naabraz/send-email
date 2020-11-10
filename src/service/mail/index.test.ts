@@ -4,8 +4,6 @@ import { mocked } from 'ts-jest/utils';
 import logger from 'helpers/logger';
 import sendEmail from './index';
 
-jest.mock('nodemailer');
-
 describe('Given mail service', () => {
   const mockedCreateTransport = mocked(createTransport, true);
 
