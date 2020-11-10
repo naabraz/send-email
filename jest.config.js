@@ -10,8 +10,9 @@ module.exports = {
   },
   collectCoverageFrom: [
     'src/**/*.ts',
-    '!**/node_modules/**',
     '!src/config/**',
+    '!src/helpers/logger/**',
+    '!**/node_modules/**',
     '!**/coverage/**',
   ],
   setupFiles: [
