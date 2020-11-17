@@ -49,14 +49,13 @@ describe('Given mail service', () => {
     expect(mockedCreateTransport().close).toHaveBeenCalled();
   });
 
-  it('Should call logger method when createTransport returns error method', () => {
+  it('Should call logger method when createTransport returns error method', async () => {
     mockedCreateTransport.mockReturnValue(({
       ...mockTransport,
       sendMail: jest.fn((_, callback) => callback('error', null)),
     }));
 
-    sendEmail(oAuth, mail);
-
+    await expect(sendEmail(oAuth, mail)).rejects.toEqual('error');
     expect(logger.error).toHaveBeenCalledWith('error');
     expect(mockedCreateTransport().close).toHaveBeenCalled();
   });
