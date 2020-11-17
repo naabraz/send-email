@@ -15,15 +15,21 @@ const smtpTransport = (oauth: OAuth) => createTransport({
   },
 });
 
-const sendEmail = (oauth: OAuth, mail: Mail): void => {
+const sendEmail = (oauth: OAuth, mail: Mail): Promise<unknown> => {
   const transport = smtpTransport(oauth);
 
-  transport.sendMail(mail, (error, response) => {
-    error
-    ? logger.error(error)
-    : logger.info({ message: JSON.stringify(response) });
+  return new Promise((resolve, reject) => {
+    transport.sendMail(mail, (error, response) => {
+      if (error) {
+        reject(error);
+        logger.error(error);
+      }
 
-    return transport.close();
+      logger.info({ message: JSON.stringify(response) });
+      resolve(response);
+
+      return transport.close();
+    });
   });
 };
 

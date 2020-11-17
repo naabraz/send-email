@@ -4,7 +4,7 @@ import config from 'config';
 import sendEmail from 'service/mail';
 import createOAuth from 'service/oauth';
 
-const send = (request: Request, response: Response): Response => {
+const send = async (request: Request, response: Response): Promise<Response> => {
   const { body } = request;
   const { message, subject } = body;
 
@@ -19,9 +19,15 @@ const send = (request: Request, response: Response): Response => {
 
   const oAuth = createOAuth();
 
-  sendEmail(oAuth, mailOptions);
-
-  return response.send({ success: true });
+  try {
+    await sendEmail(oAuth, mailOptions);
+    return response.send({ success: true });
+  } catch(error) {
+    return response.send({
+      success: false,
+      error
+    });
+  }
 };
 
 export default send;
