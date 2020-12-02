@@ -32,20 +32,9 @@ describe('Given mail service', () => {
   };
 
   it('Should call createTransport nodemailer method', () => {
-  const mockedSmtpTransport = {
-    auth: {
-        clientId: 'clientId',
-        clientSecret: 'clientSecret',
-        refreshToken: 'refreshToken',
-        type: 'OAuth2',
-        user: 'OAUTH_USER'
-      },
-      service: 'EMAIL_SERVICE'
-    };
-
     sendEmail(oAuth, mail);
 
-    expect(mockedCreateTransport).toHaveBeenCalledWith(mockedSmtpTransport);
+    expect(mockedCreateTransport).toHaveBeenCalled();
     expect(mockedCreateTransport().close).toHaveBeenCalled();
   });
 
