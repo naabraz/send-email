@@ -23,12 +23,12 @@ jobs:
       env:
         CI: true
 
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
+    - name: Send project via scp
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
-        script: |
-          whoami
-          ls -al
+        with:
+          source: "."
+          target: "/build"
