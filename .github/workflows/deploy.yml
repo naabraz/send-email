@@ -30,4 +30,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSHKEY }}
         source: "."
-        target: "/build"
+        target: "send-mail"
