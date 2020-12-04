@@ -23,7 +23,7 @@ jobs:
       env:
         CI: true
 
-    - name: S3 Sync
+    - name: Get S3 file
       uses: ItsKarma/aws-cli@v1.70.0
       with:
         args: s3 cp ${{ secrets.S3_BUCKET_FILE }}
