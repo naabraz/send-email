@@ -7,7 +7,7 @@ import mail from 'controller/index';
 import logger from 'helpers/logger';
 
 const app: express.Application = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.json());
 
