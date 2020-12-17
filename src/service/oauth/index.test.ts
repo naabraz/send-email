@@ -1,16 +1,15 @@
-import { google } from 'googleapis';
+import { OAuth2Client } from 'google-auth-library';
 import { mocked } from 'ts-jest/utils';
 
 import createOAuth from './';
 
-jest.mock('googleapis');
+jest.mock('google-auth-library');
 
 describe('Given OAuth service', () => {
-  const { OAuth2 } = google.auth;
-  const mockOAuth2 = mocked(OAuth2, true);
+  const mockOAuth2 = mocked(OAuth2Client, true);
 
   mockOAuth2.mockImplementation(() => ({
-    ...require('googleapis'),
+    ...require('google-auth-library'),
     setCredentials: jest.fn(),
     getAccessToken: jest.fn().mockReturnValue('AccessTokenMock'),
   }));
@@ -24,7 +23,7 @@ describe('Given OAuth service', () => {
     };
 
     expect(createOAuth()).toEqual(oAuthMock);
-    expect(OAuth2).toHaveBeenCalledWith(
+    expect(OAuth2Client).toHaveBeenCalledWith(
       'OAUTH_CLIENT_ID',
       'OAUTH_CLIENT_SECRET',
       'OAUTH_REDIRECT_URL'

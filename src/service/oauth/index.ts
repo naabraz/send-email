@@ -1,9 +1,7 @@
-import { google } from 'googleapis';
+import { OAuth2Client } from 'google-auth-library';
 
 import config from 'config';
 import { OAuth } from 'types';
-
-const { OAuth2 } = google.auth;
 
 const createOAuth = (): OAuth => {
   const clientSecret = config.OAUTH_CLIENT_SECRET;
@@ -11,7 +9,7 @@ const createOAuth = (): OAuth => {
   const redirectUrl = config.OAUTH_REDIRECT_URL;
   const refreshToken = config.OAUTH_REFRESH_TOKEN;
 
-  const client = new OAuth2(
+  const client = new OAuth2Client (
     clientId,
     clientSecret,
     redirectUrl,
