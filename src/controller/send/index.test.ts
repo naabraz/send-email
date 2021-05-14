@@ -13,17 +13,30 @@ describe('Given Mail controller', () => {
 
   it('Should call sendMail service with mail data', () => {
     mockRequest.body = {
-      message: 'mail message',
-      subject: 'mail subject'
+      name: 'john doe',
+      band: 'john doe band',
+      email: 'john@doe.com',
+      country: 'united stats',
+      message: 'message from john doe',
     };
+
+    const { name, band, email, country, message } = mockRequest.body;
+
+    const html = `
+    <strong>Name</strong>: ${name}<br><br>
+    <strong>Band</strong>: ${band}<br><br>
+    <strong>Email</strong>: ${email}<br><br>
+    <strong>Country</strong>: ${country}<br><br>
+    <strong>Message</strong>: ${message}<br><br>
+  `;
 
     const mailOptions = {
       from: 'MAIL_SENDER',
       generateTextFromHTML: true,
-      html: 'mail message',
-      replyTo: 'REPLY_TO',
-      subject: 'mail subject',
-      to: 'SEND_TO'
+      html,
+      replyTo: email,
+      subject: `CadiesArt Website Contact from: ${name}`,
+      to: 'SEND_TO',
     };
 
     send(mockRequest, mockResponse);

@@ -1,9 +1,9 @@
 export type OAuth = {
-  accessToken: Promise<unknown>,
+  accessToken: Promise<unknown>;
   clientSecret?: string;
   clientId?: string;
   refreshToken?: string;
-}
+};
 
 export type Mail = {
   from?: string;
@@ -12,4 +12,4 @@ export type Mail = {
   subject: string;
   generateTextFromHTML: boolean;
   html: string;
-}
+};
